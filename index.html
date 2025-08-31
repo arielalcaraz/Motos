@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motos Premium Argentina | Venta de Motomel, Benelli y Royal Enfield</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* --- Estilo de Texto Neón --- */
+        .neon-text {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #228DFF,
+                0 0 80px #228DFF,
+                0 0 90px #228DFF,
+                0 0 100px #228DFF,
+                0 0 150px #228DFF;
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        .moto-title-neon {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #228DFF;
+            transition: text-shadow 0.3s ease-in-out;
+        }
+        .card:hover .moto-title-neon {
+             text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #228DFF;
+        }
+
+        @keyframes flicker {
+            70%, 100% {
+                text-shadow:
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px #228DFF,
+                    0 0 82px #228DFF,
+                    0 0 92px #228DFF,
+                    0 0 102px #228DFF,
+                    0 0 152px #228DFF;
+            }
+            0%, 69% {
+                text-shadow:
+                    0 0 4px #fff,
+                    0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 40px #228DFF,
+                    0 0 80px #228DFF,
+                    0 0 90px #228DFF,
+                    0 0 100px #228DFF,
+                    0 0 150px #228DFF;
+            }
+        }
+        
+        /* --- Estilos Adicionales --- */
+        .brand-logo {
+            filter: grayscale(100%) brightness(2);
+            transition: all 0.8s ease-in-out;
+            opacity: 0.5;
+            transform: scale(1);
+        }
+        .brand-logo.is-visible, .brand-logo:hover {
+            filter: grayscale(0%) brightness(1) drop-shadow(0 0 10px #fff);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background-color: #228DFF;
+            color: #fff;
+            box-shadow: 0 0 15px #228DFF;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(34, 141, 255, 0.5);
+        }
+        .card-image-container {
+            position: relative;
+        }
+        .card-image-container img {
+            transition: opacity 0.4s ease-in-out;
+        }
+        .card-image-container .secondary-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        .card:hover .secondary-image {
+            opacity: 1;
+        }
+        .card:hover .primary-image {
+            opacity: 0;
+        }
+        
+        /* Efecto para cambio de imagen en móvil al scrollear */
+        .card.is-in-view .secondary-image {
+            opacity: 1;
+        }
+        .card.is-in-view .primary-image {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+
+    <div id="main-content">
+        <!-- Encabezado y Héroe -->
+        <header class="h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center p-4" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,1)), url('https://i.ibb.co/kgQZwynk/Blitz110-V8-slider-azul.png');">
+            <img src="https://i.ibb.co/jPdrxf4W/Generated-Image-August-30-2025-10-30-PM.png" alt="Logo Principal" class="w-40 h-40 md:w-52 md:h-52 mb-6">
+            <h1 class="text-4xl md:text-7xl font-bold neon-text">ILUMINA TU CAMINO</h1>
+            <p class="text-lg md:text-xl text-gray-300 mt-4 max-w-2xl">La aventura de tu vida comienza sobre dos ruedas. Encuentra la moto perfecta para vos.</p>
+            <a href="#catalogo" class="mt-8 px-8 py-3 bg-gray-800 text-white font-bold rounded-lg border-2 border-gray-600 hover:bg-white hover:text-black transition-colors duration-300">VER MOTOS</a>
+        </header>
+
+        <!-- Sección de Financiación -->
+        <section id="financiacion" class="py-12 bg-black border-y border-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-id-card text-4xl text-blue-400 mb-3"></i>
+                        <h3 class="text-lg font-bold text-white">Financiación solo con DNI</h3>
+                        <p class="text-gray-400">La forma más rápida de tener tu moto.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-file-invoice-dollar text-4xl text-blue-400 mb-3"></i>
+                        <h3 class="text-lg font-bold text-white">Créditos con recibo de sueldo</h3>
+                        <p class="text-gray-400">Planes a tu medida.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-credit-card text-4xl text-blue-400 mb-3"></i>
+                        <h3 class="text-lg font-bold text-white">Cuotas sin interés</h3>
+                        <p class="text-gray-400">Con Tarjeta Naranja y Tarjeta Tuya.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Marcas -->
+        <section id="marcas" class="py-16 bg-black">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-3 gap-8 items-center">
+                    <a href="#catalogo" class="flex justify-center" data-brand-focus="motomel">
+                        <img src="https://i.ibb.co/3YCGpCLX/41200-036-corona-motomel-skua-250ful.png" alt="Logo Motomel" class="brand-logo h-20 md:h-28">
+                    </a>
+                    <a href="#catalogo" class="flex justify-center" data-brand-focus="royal-enfield">
+                        <img src="https://i.ibb.co/VY9scCb8/royal-enfield-logo-png-seeklogo-335155.png" alt="Logo Royal Enfield" class="brand-logo h-24 md:h-32">
+                    </a>
+                    <a href="#catalogo" class="flex justify-center" data-brand-focus="benelli">
+                        <img src="https://i.ibb.co/Xkbt6ZSs/Benelli-2016-logo.png" alt="Logo Benelli" class="brand-logo h-20 md:h-28">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo de Motos -->
+        <main id="catalogo" class="container mx-auto px-4 py-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 moto-title-neon">NUESTRO CATÁLOGO</h2>
+            <p class="text-center text-gray-400 mb-12">Explora los modelos que tenemos para ofrecerte.</p>
+
+            <!-- Filtros -->
+            <div id="filters" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+                <button class="filter-btn active px-4 py-2 bg-gray-800 text-gray-300 font-semibold rounded-md border border-gray-700" data-filter="all">Todas</button>
+                <button class="filter-btn px-4 py-2 bg-gray-800 text-gray-300 font-semibold rounded-md border border-gray-700" data-filter="motomel">Motomel</button>
+                <button class="filter-btn px-4 py-2 bg-gray-800 text-gray-300 font-semibold rounded-md border border-gray-700" data-filter="benelli">Benelli</button>
+                <button class="filter-btn px-4 py-2 bg-gray-800 text-gray-300 font-semibold rounded-md border border-gray-700" data-filter="royal-enfield">Royal Enfield</button>
+            </div>
+
+            <!-- Grilla de Motos -->
+            <div id="moto-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Las tarjetas de moto se insertarán aquí con JS -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 border-t border-gray-800 text-center py-8">
+            <img src="https://i.ibb.co/jPdrxf4W/Generated-Image-August-30-2025-10-30-PM.png" alt="Logo Footer" class="w-24 h-24 mx-auto mb-4">
+            <p class="text-gray-400">Motos Premium Argentina &copy; 2024. Todos los derechos reservados.</p>
+            <p class="text-gray-500 text-sm mt-2">Diseñado para la máxima potencia y estilo.</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <a href="https://www.instagram.com/ariel_1280h?utm_source=qr&igsh=MWI5Yzdoc2tvYTczaA==" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/16oyE1mrZN/" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/message/QKQZ4KLSGIORM1" target="_blank" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Base de Datos de Motos ---
+            const motos = [
+                // Motomel Blitz
+                { brand: 'motomel', series: 'Blitz', model: 'Blitz 110 V8', images: ['https://i.ibb.co/kgQZwynk/Blitz110-V8-slider-azul.png', 'https://i.ibb.co/GfdXkNfD/Screenshot-29.png'], features: [{ icon: 'fa-compact-disc', text: 'Freno delantero a disco con CBS' }, { icon: 'fa-robot', text: 'Embrague automático' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-tachometer-alt', text: 'Tablero con indicador de Marchas' }, { icon: 'fa-box-open', text: 'Espacioso baúl bajo asiento' }, { icon: 'fa-lightbulb', text: 'Balizas' }] },
+                { brand: 'motomel', series: 'Blitz', model: 'Blitz 110 black 110 V8', images: ['https://i.ibb.co/DDgxj1Cd/Blitz110-black110-V8-slider.png', 'https://i.ibb.co/mVghYdg0/Screenshot-29.png'], features: [{ icon: 'fa-compact-disc', text: 'Freno delantero a disco con CBS' }, { icon: 'fa-palette', text: 'Color exclusivo negro matte' }, { icon: 'fa-robot', text: 'Embrague automático' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-tachometer-alt', text: 'Tablero con indicador de Marchas' }, { icon: 'fa-box-open', text: 'Espacioso baúl bajo asiento' }] },
+                { brand: 'motomel', series: 'Blitz', model: 'Blitz 110 Full', images: ['https://i.ibb.co/qLV6BX6b/Blitz-110-Full-rojo.png', 'https://i.ibb.co/wrQHhFhj/Screenshot-29.png'], features: [{ icon: 'fa-sun', text: 'Pintura perlada con protección UV' }, { icon: 'fa-star', text: 'Llantas de Aleación' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-tachometer-alt', text: 'Tablero con indicador de Marchas' }, { icon: 'fa-compact-disc', text: 'Freno a disco con CBS' }, { icon: 'fa-lightbulb', text: 'Balizas' }] },
+                { brand: 'motomel', series: 'Blitz', model: 'Blitz 110 V8 Automatica', images: ['https://i.ibb.co/G41Vbn5D/Blitz-110-V8-Automatica-negro-new.png', 'https://i.ibb.co/sdPzQJ3p/Screenshot-29.png'], features: [{ icon: 'fa-compact-disc', text: 'Freno delantero a disco con CBS' }, { icon: 'fa-couch', text: 'Asiento antideslizante SOFT TOUCH' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-cogs', text: 'Motor CG de consumo reducido' }, { icon: 'fa-sliders-h', text: 'Amortiguadores regulables' }] },
+                { brand: 'motomel', series: 'Blitz', model: 'Blitz Plus', images: ['https://i.ibb.co/5gpF8KVp/Blitz-Plus-slider-blanco.png', 'https://i.ibb.co/TM3x9PWj/Screenshot-29.png'], features: [{ icon: 'fa-lightbulb', text: 'Luces Full LED con DRL' }, { icon: 'fa-usb', text: 'Cargador USB' }, { icon: 'fa-compact-disc', text: 'Freno delantero a disco con CBS' }, { icon: 'fa-bell', text: 'Alarma con arranque a distancia' }, { icon: 'fa-arrow-right', text: 'Luces de giro incorporadas' }] },
+                { brand: 'motomel', series: 'Blitz', model: 'Blitz Tunning 110', images: ['https://i.ibb.co/4wp40NGF/Blitz-Tunning-110-slider-negro.png', 'https://i.ibb.co/6JLPWGWd/Screenshot-29.png'], features: [{ icon: 'fa-gem', text: 'Detalles en aluminio' }, { icon: 'fa-compact-disc', text: 'Freno a disco con CBS' }, { icon: 'fa-road', text: 'Rodado 130-60/13 de gran pisada' }, { icon: 'fa-tachometer-alt', text: 'Tablero con indicador de marchas' }, { icon: 'fa-rocket', text: 'Accesorios deportivos' }, { icon: 'fa-grip-lines', text: 'Puños con mejor grip' }] },
+                // Motomel Sirius
+                { brand: 'motomel', series: 'Sirius', model: 'Sirius 190', images: ['https://i.ibb.co/xNRjL8N/Sirius-190-slide-azul.png', 'https://i.ibb.co/hRqYnXLR/Screenshot-29.png'], features: [{ icon: 'fa-desktop', text: 'Tablero digital con selector de color' }, { icon: 'fa-compact-disc', text: 'Freno a disco en ambas ruedas' }, { icon: 'fa-cogs', text: 'Potente motor CBB con balanceador' }, { icon: 'fa-fire', text: 'Iluminación lateral en tanque' }, { icon: 'fa-shoe-prints', text: 'Cubiertas de bajo perfil' }, { icon: 'fa-motorcycle', text: 'Diseño exclusivo NAKED' }] },
+                // Motomel DLX
+                { brand: 'motomel', series: 'DLX', model: 'DLX Deluxe CBS', images: ['https://i.ibb.co/fzhh7jJ4/DLX-Deluxe-slider-negro-1.png', 'https://i.ibb.co/MxLxNwrR/Screenshot-29.png'], features: [{ icon: 'fa-compact-disc', text: 'Freno delantero a disco con CBS' }, { icon: 'fa-robot', text: 'Embrague automático' }, { icon: 'fa-road', text: 'Rodado 2.50/17' }, { icon: 'fa-suitcase', text: 'Parrilla porta equipaje' }, { icon: 'fa-tachometer-alt', text: 'Tablero con indicador de marchas' }, { icon: 'fa-leaf', text: 'Motor OHC silencioso y consumo reducido' }] },
+                // Motomel Max
+                { brand: 'motomel', series: 'Max', model: 'Max 110', images: ['https://i.ibb.co/N2Psc7hz/Max110-slider-negro.png', 'https://i.ibb.co/sJD56xk3/Screenshot-29.png'], features: [{ icon: 'fa-cogs', text: 'Motor 110cc OHC único' }, { icon: 'fa-road', text: 'Rodado 3.50/10' }, { icon: 'fa-users', text: 'Apta para dos pasajeros' }, { icon: 'fa-compact-disc', text: 'Freno a disco' }, { icon: 'fa-compress-arrows-alt', text: 'Tamaño compacto Smart' }, { icon: 'fa-suitcase', text: 'Parrilla trasera porta objetos' }] },
+                // Motomel S2
+                { brand: 'motomel', series: 'S2', model: 'S2 150', images: ['https://i.ibb.co/ZzKwQfV2/S2150-negra.png', 'https://i.ibb.co/Pz9ztpTM/Screenshot-29.png'], features: [{ icon: 'fa-compact-disc', text: 'Freno delantero a disco con CBS' }, { icon: 'fa-couch', text: 'Asiento antideslizante SOFT TOUCH' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-cogs', text: 'Motor CG de consumo reducido' }, { icon: 'fa-sliders-h', text: 'Amortiguadores regulables' }] },
+                // Motomel Victory
+                { brand: 'motomel', series: 'Victory', model: 'Victory 150', images: ['https://i.ibb.co/1YMPxm02/Victory150-rojo-2.png', 'https://i.ibb.co/F4RYTxVY/Screenshot-29.png'], features: [{ icon: 'fa-cogs', text: 'Motor Mono cilíndrico 4T' }, { icon: 'fa-bolt', text: 'Arranque Eléctrico y a patada' }, { icon: 'fa-compact-disc', text: 'Frenos Disco / Tambor' }, { icon: 'fa-sliders-h', text: 'Doble amortiguador trasero' }, { icon: 'fa-usb', text: 'Cargador USB' }] },
+                // Motomel Skua
+                { brand: 'motomel', series: 'Skua', model: 'Skua 125 Extreme', images: ['https://i.ibb.co/FqKjSw5N/Skua125-Extreme-slider-negro.png', 'https://i.ibb.co/JwmM9S5f/Screenshot-29.png'], features: [{ icon: 'fa-ruler-vertical', text: 'Altura al asiento: 85 cm' }, { icon: 'fa-sliders-h', text: 'Monoshock regulable' }, { icon: 'fa-compact-disc', text: 'Frenos a disco en ambas ruedas' }, { icon: 'fa-road', text: 'Rodado 19 / 16' }, { icon: 'fa-volume-up', text: 'Escape deportivo exclusivo' }, { icon: 'fa-shield-alt', text: 'Chapón cubre carter' }] },
+                { brand: 'motomel', series: 'Skua', model: 'Skua 150', images: ['https://i.ibb.co/6c8tdp0c/Skua-150-negro.png', 'https://i.ibb.co/F4bmLrTr/Screenshot-29.png'], features: [{ icon: 'fa-usb', text: 'Cargador USB' }, { icon: 'fa-paint-brush', text: 'Nuevas gráficas y colores' }, { icon: 'fa-tachometer-alt', text: 'Tablero completo' }, { icon: 'fa-compact-disc', text: 'Freno delantero a disco' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-sliders-h', text: 'Suspensión Monoamortiguador' }] },
+                { brand: 'motomel', series: 'Skua', model: 'Skua 250', images: ['https://i.ibb.co/QLmc5Dn/Skua250-slider-negro.png', 'https://i.ibb.co/xqWBttdN/Screenshot-29.png'], features: [{ icon: 'fa-cogs', text: 'Motor CGB con balanceador' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-compact-disc', text: 'Freno delantero y trasero a disco' }, { icon: 'fa-couch', text: 'Asiento con material antideslizante' }, { icon: 'fa-shoe-prints', text: 'Cubiertas doble propósito' }, { icon: 'fa-arrows-alt-v', text: 'Suspensión de gran recorrido' }] },
+                { brand: 'motomel', series: 'Skua', model: 'Skua 250 Adventure', images: ['https://i.ibb.co/QFtY3ZgH/1-skua-2022-roja.png', 'https://i.ibb.co/TGv6d9G/2-Screenshot-29.png'], features: [{ icon: 'fa-cogs', text: 'Motor CGB con balanceador' }, { icon: 'fa-bolt', text: 'Arranque eléctrico y por patada' }, { icon: 'fa-compact-disc', text: 'Freno delantero y trasero a disco' }, { icon: 'fa-couch', text: 'Asiento con material antideslizante' }, { icon: 'fa-shoe-prints', text: 'Cubiertas doble propósito' }, { icon: 'fa-arrows-alt-v', text: 'Suspensión de gran recorrido' }] },
+                { brand: 'motomel', series: 'Skua', model: 'Skua Silver Edition', images: ['https://i.ibb.co/wrx5BFmp/1-Skua-Silver-Edition-slider-silver.png', 'https://i.ibb.co/m5jrG5Lf/2-Skua-Silver-Edition-2.jpg'], features: [{ icon: 'fa-palette', text: 'Pintura gris mate anti rayaduras' }, { icon: 'fa-volume-up', text: 'Escape deportivo Pro Off Road' }, { icon: 'fa-sliders-h', text: 'Suspensión delantera invertida' }, { icon: 'fa-hand-paper', text: 'Cubre puños con alma de aluminio' }, { icon: 'fa-shield-alt', text: 'Chapón Cubre Carter' }, { icon: 'fa-compact-disc', text: 'Frenos de disco' }] },
+                { brand: 'motomel', series: 'Skua', model: 'XMM 250', images: ['https://i.ibb.co/8448mRxY/1-xxm-250-azul-1.png', 'https://i.ibb.co/h1f6YFfJ/Screenshot-29.png'], features: [{ icon: 'fa-desktop', text: 'Tablero digital' }, { icon: 'fa-couch', text: 'Asiento antideslizante' }, { icon: 'fa-sliders-h', text: 'Suspensión delantera invertida' }, { icon: 'fa-compact-disc', text: 'Freno delantero y trasero a disco' }, { icon: 'fa-road', text: 'Rodado 21 / 18' }, { icon: 'fa-shoe-prints', text: 'Cubiertas para uso mixto' }] },
+                // Motomel Strato
+                { brand: 'motomel', series: 'Strato', model: 'Strato Euro 150', images: ['https://i.ibb.co/wrddyfRr/1-Strato-Euro150-slider-negro.png', 'https://i.ibb.co/Q72RdGCg/2-Screenshot-29.png'], features: [{ icon: 'fa-lightbulb', text: 'Iluminación FULL LED con DRL' }, { icon: 'fa-robot', text: 'Embrague automático' }, { icon: 'fa-road', text: 'Rodado 3,50-10' }, { icon: 'fa-sun', text: 'Pintura perlada bicapa con UV' }, { icon: 'fa-suitcase', text: 'Parrilla porta equipaje' }, { icon: 'fa-compact-disc', text: 'Freno a disco con CBS' }] },
+                { brand: 'motomel', series: 'Strato', model: 'Strato Alpino 150', images: ['https://i.ibb.co/1thj7czL/1-Strato-Alpino150-slider-verde.png', 'https://i.ibb.co/WNMxCH4R/Screenshot-29.png'], features: [{ icon: 'fa-robot', text: 'Embrague automático' }, { icon: 'fa-road', text: 'Rodado 12"' }, { icon: 'fa-sun', text: 'Pintura perlada bicapa con UV' }, { icon: 'fa-suitcase', text: 'Parrilla porta equipaje' }, { icon: 'fa-compact-disc', text: 'Freno a disco con CBS' }, { icon: 'fa-cogs', text: 'Motor 4t de 150cc' }] },
+                // Benelli
+                { brand: 'benelli', series: 'TNT', model: 'Benelli TNT 15', images: ['https://i.ibb.co/vRJHdbz/Generated-Image-August-30-2025-10-32-PM.png', 'https://i.ibb.co/jP2hN4pX/benelli-tnt15-gallery-1600x800-7.jpg'], features: [{ icon: 'fa-cogs', text: 'Cilindrada: 149 C.C.' }, { icon: 'fa-gas-pump', text: 'Tanque de combustible: 16 LT' }, { icon: 'fa-horse-head', text: 'Potencia: 12.06 BHP @ 8500 RPM' }] },
+                // Royal Enfield
+                { brand: 'royal-enfield', series: 'Hunter', model: 'Hunter GRR450', images: ['https://i.ibb.co/qYzFpPtV/descarga.png', 'https://i.ibb.co/yFcYJFnr/principal.jpg'], features: [{ icon: 'fa-tachometer-alt', text: 'Potencia: 40 NM @ 5500 RPM' }, { icon: 'fa-cogs', text: 'Motor: 452 CC Monocilindrica' }, { icon: 'fa-lock', text: 'Sistema Antibloqueo de frenos' }, { icon: 'fa-lightbulb', text: 'Encendido automático de luces' }] }
+            ];
+
+            const motoGrid = document.getElementById('moto-grid');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            // --- Observer para efectos de scroll ---
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            let cardObserver;
+
+            if (isMobile) {
+                cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => entry.target.classList.add('is-in-view'), 300);
+                        } else {
+                            entry.target.classList.remove('is-in-view');
+                        }
+                    });
+                }, { threshold: 0.6 });
+            }
+
+            const brandSection = document.getElementById('marcas');
+            const brandLogos = brandSection.querySelectorAll('.brand-logo');
+            const brandObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        brandLogos.forEach((logo, index) => {
+                            setTimeout(() => {
+                                logo.classList.add('is-visible');
+                            }, index * 200);
+                        });
+                        brandObserver.unobserve(brandSection);
+                    }
+                });
+            }, { threshold: 0.4 });
+            brandObserver.observe(brandSection);
+
+
+            // --- Función para renderizar las motos ---
+            const renderMotos = (filter = 'all') => {
+                if (isMobile && cardObserver) {
+                    const oldCards = motoGrid.querySelectorAll('.card');
+                    oldCards.forEach(card => cardObserver.unobserve(card));
+                }
+                motoGrid.innerHTML = '';
+                const filteredMotos = motos.filter(moto => filter === 'all' || moto.brand === filter);
+
+                if (filteredMotos.length === 0) {
+                    motoGrid.innerHTML = `<p class="text-center text-gray-400 col-span-full">No hay motos en esta categoría.</p>`;
+                    return;
+                }
+
+                filteredMotos.forEach(moto => {
+                    const card = document.createElement('div');
+                    card.className = 'card bg-gray-900 rounded-lg overflow-hidden border border-gray-800 flex flex-col';
+                    card.dataset.brand = moto.brand;
+
+                    let featuresHTML = moto.features.map(feature => `
+                        <li class="flex items-center space-x-3">
+                            <i class="fas ${feature.icon} text-blue-400"></i>
+                            <span class="text-gray-300 text-sm">${feature.text}</span>
+                        </li>
+                    `).join('');
+
+                    card.innerHTML = `
+                        <div class="card-image-container relative">
+                            <img src="${moto.images[0]}" alt="${moto.model}" class="primary-image w-full h-56 object-contain">
+                            <img src="${moto.images[1]}" alt="${moto.model} vista alternativa" class="secondary-image w-full h-56 object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="moto-title-neon text-xl mb-2">${moto.model.toUpperCase()}</h3>
+                            <p class="text-xs text-blue-400 uppercase font-bold mb-4">${moto.series}</p>
+                            <ul class="space-y-2 mb-6 flex-grow">
+                                ${featuresHTML}
+                            </ul>
+                            <a href="https://wa.me/message/QKQZ4KLSGIORM1" target="_blank" class="mt-auto block text-center w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                                Consultar por WhatsApp
+                            </a>
+                        </div>
+                    `;
+                    // Fix para que la imagen de Benelli sin fondo no se vea mal
+                    if(moto.model.includes('Benelli')) {
+                       card.querySelector('.primary-image').classList.add('object-contain');
+                       card.querySelector('.primary-image').classList.remove('object-cover');
+                    }
+                    motoGrid.appendChild(card);
+                });
+
+                if (isMobile && cardObserver) {
+                    document.querySelectorAll('.card').forEach(card => cardObserver.observe(card));
+                }
+            };
+
+            // --- Lógica de Filtros ---
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filterValue = button.dataset.filter;
+                    renderMotos(filterValue);
+                });
+            });
+            
+            // --- Clic en logos de marcas para filtrar ---
+            document.querySelectorAll('[data-brand-focus]').forEach(logoLink => {
+                logoLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelector(`.filter-btn[data-filter="${logoLink.dataset.brandFocus}"]`).click();
+                    document.getElementById('catalogo').scrollIntoView();
+                });
+            });
+
+            // Render inicial de todas las motos
+            renderMotos();
+        });
+    </script>
+</body>
+</html>
